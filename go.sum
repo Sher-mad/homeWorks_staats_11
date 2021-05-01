@@ -1,2 +1,8 @@
 github.com/Sher-mad/homeWorks_bank_11 v0.0.0-20210428181639-3250ea2d1079 h1:VZohgi6wEG6HfY5N+o5U2ErabtjdJXdHV2RYR1Bz248=
 github.com/Sher-mad/homeWorks_bank_11 v0.0.0-20210428181639-3250ea2d1079/go.mod h1:MiqLEMCNDhMFIqchzGb0xQCRbNCJDK3bHeufBcFNUeU=
+github.com/Sher-mad/homeWorks_bank_11 v1.0.0 h1:Wbq0jP7AfdFhRamXgWPopHfF3+wskxDLIAu6Ar8/80g=
+github.com/Sher-mad/homeWorks_bank_11 v1.0.0/go.mod h1:MiqLEMCNDhMFIqchzGb0xQCRbNCJDK3bHeufBcFNUeU=
+github.com/Sher-mad/homeWorks_bank_11/v2 v2.0.2 h1:fXm/FLAGyqIOhpB99xiBPIvbZQCctB40hIrAs/yIa78=
+github.com/Sher-mad/homeWorks_bank_11/v2 v2.0.2/go.mod h1:WXWtLJA6xU3yVuw3tn4IDRknOvuOSgxlDhXmefwAwVc=
+github.com/Sher-mad/homeWorks_bank_11/v2 v2.0.4 h1:cImetMDJndA30eurT9luwiOWJJpmtBFmM505mcQA3Zo=
+github.com/Sher-mad/homeWorks_bank_11/v2 v2.0.4/go.mod h1:WXWtLJA6xU3yVuw3tn4IDRknOvuOSgxlDhXmefwAwVc=
