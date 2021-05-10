@@ -172,7 +172,7 @@ func TestPeriodsDynamic_second_result(t *testing.T) {
 		"food": 20,
 	}
 	expected := map[types.Category]types.Money{
-		"auto": 10,
+		"auto": -10,
 		"food": 0,
 	}
 	result := stats.PeriodsDynamic(first, second)
