@@ -95,7 +95,6 @@ func TestCategoriesAvg_empty(t *testing.T) {
 	}
 }
 
-
 func TestCategoriesAvg_Total(t *testing.T) {
 	payments := []types.Payment{
 		{ID: 1, Category: "cafe", Amount: 1_000, Status: "OK"},
@@ -112,6 +111,114 @@ func TestCategoriesAvg_Total(t *testing.T) {
 	}
 
 	result := stats.CategoriesAvg(payments)
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("invalid result, expected: %v, actual %v", expected, result)
+	}
+
+}
+
+//__________________________________________________________lection_12_PeriodsDynamic______________________________________________________
+
+func TestPeriodsDynamic_nil(t *testing.T) {
+	var first map[types.Category]types.Money
+	var second map[types.Category]types.Money
+
+	result := stats.PeriodsDynamic(first, second)
+
+	if len(result) != 0 {
+		fmt.Println("result len == 0")
+	}
+
+}
+func TestPeriodsDynamic_empty(t *testing.T) {
+	first := map[types.Category]types.Money{}
+	second := map[types.Category]types.Money{}
+
+	result := stats.PeriodsDynamic(first, second)
+
+	if len(result) != 0 {
+		fmt.Println("result len == 0", result)
+	}
+
+}
+func TestPeriodsDynamic_first_result(t *testing.T) {
+	first := map[types.Category]types.Money{
+
+		"auto": 10,
+		"food": 20,
+	}
+	second := map[types.Category]types.Money{
+		"auto": 5,
+		"food": 3,
+	}
+	expected := map[types.Category]types.Money{
+		"auto": -5,
+		"food": -17,
+	}
+	result := stats.PeriodsDynamic(first, second)
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("invalid result, expected: %v, actual %v", expected, result)
+	}
+
+}
+func TestPeriodsDynamic_second_result(t *testing.T) {
+	first := map[types.Category]types.Money{
+
+		"auto": 10,
+		"food": 20,
+	}
+	second := map[types.Category]types.Money{
+		"auto": 20,
+		"food": 20,
+	}
+	expected := map[types.Category]types.Money{
+		"auto": 10,
+		"food": 0,
+	}
+	result := stats.PeriodsDynamic(first, second)
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("invalid result, expected: %v, actual %v", expected, result)
+	}
+
+}
+
+func TestPeriodsDynamic_third_result(t *testing.T) {
+	first := map[types.Category]types.Money{
+
+		"auto": 10,
+		"food": 20,
+	}
+	second := map[types.Category]types.Money{
+		"food": 20,
+	}
+	expected := map[types.Category]types.Money{
+		"auto": -10,
+		"food": 0,
+	}
+	result := stats.PeriodsDynamic(first, second)
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("invalid result, expected: %v, actual %v", expected, result)
+	}
+
+}
+
+func TestPeriodsDynamic_fourth_result(t *testing.T) {
+	first := map[types.Category]types.Money{
+
+		"auto": 10,
+		"food": 20,
+	}
+	second := map[types.Category]types.Money{
+		"auto":   10,
+		"food":   25,
+		"mobile": 5,
+	}
+	expected := map[types.Category]types.Money{
+		"auto":   0,
+		"food":   -5,
+		"mobile": -5,
+	}
+	result := stats.PeriodsDynamic(first, second)
 	if !reflect.DeepEqual(expected, result) {
 		t.Errorf("invalid result, expected: %v, actual %v", expected, result)
 	}
